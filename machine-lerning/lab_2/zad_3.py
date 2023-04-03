@@ -23,7 +23,7 @@ def show(img):
 img = plt.imread("../assets/images/tiger.png", "png")
 
 # copy the image into a gray-scale buffer
-img = img[:,:,0].copy()
+img = img[:, :, 0].copy()
 
 # get the width & the height of the image
 height, width = img.shape
