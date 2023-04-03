@@ -11,8 +11,6 @@
         e) prikazati samo drugu četvrtinu slike po širini, a prikazati sliku cijelu po visini; ostali dijelovi slike trebaju biticrni.
 """
 
-# hstack & vstack
-
 import matplotlib.pyplot as plt
 import numpy as np
 
@@ -53,25 +51,11 @@ for y in range(height):
     rotated_img[y] = img[height - 1 - y]
 show(rotated_img)
 
-# scale the image
-scale = 10
-
-# scale the width & height
-s_width = width // scale
-s_height = height // scale
-
-# create the scaled image
-resized_img = np.zeros((s_height, s_width))
-
-# scale the image
-for y in range(height):
-    for x in range(width):
-        if  (x + scale) % scale == 0 and (y + scale) % scale == 0:
-            resized_img[y // scale, x // scale] = img[y, x]
-show(resized_img)
+# scaled down the image
+show(img[::10, ::10])
 
 # clip the image
 clipped_img = np.zeros((height, width))
 clip_size = width // 4
-clipped_img[:, -clip_size:] = img[:, -clip_size:]
+clipped_img[:, clip_size : clip_size * 2] = img[:, clip_size : clip_size * 2]
 show(clipped_img)
