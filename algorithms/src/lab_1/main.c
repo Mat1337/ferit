@@ -6,7 +6,7 @@
 #include <stdio.h>
 
 // custom utility
-#include <timings.h>
+#include "timings.h"
 
 static void gen_arr(float *array, int count, float min, float max) {
     SECTION_START_FUNC

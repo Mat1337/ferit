@@ -4,7 +4,7 @@
 #include <stdio.h>
 #include <stdint.h>
 #include <stdbool.h>
-#include <timings.h>
+#include "timings.h"
 
 typedef struct {
     uint32_t stack[256];

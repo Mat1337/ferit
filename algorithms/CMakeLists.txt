@@ -16,7 +16,7 @@ add_library(algorithms STATIC src/timings.c include/timings.h)
 # this function creates a test
 function(CREATE_LAB NAME)
     # get all the c source files for the current lab
-    file(GLOB files "${CMAKE_CURRENT_SOURCE_DIR}/${NAME}/*.c")
+    file(GLOB files "${CMAKE_CURRENT_SOURCE_DIR}/src/${NAME}/*.c")
 
     # initialize a counter variable
     set(counter 0)
@@ -38,3 +38,4 @@ endfunction()
 CREATE_LAB(lab_1)
 CREATE_LAB(lab_2)
 CREATE_LAB(lab_3)
+CREATE_LAB(lab_4)

@@ -5,7 +5,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include <timings.h>
+#include "timings.h"
 
 #define RANDOM_MIN 0
 #define RANDOM_MAX 1000
