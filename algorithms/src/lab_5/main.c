@@ -59,8 +59,8 @@ static void bubble_sort(int *array, int len) {
     SECTION_END_FUNC
 }
 
-void merge(int arr[], int l,
-           int m, int r) {
+static void merge(int arr[], int l,
+                  int m, int r) {
     int i, j, k;
     int n1 = m - l + 1;
     int n2 = r - m;
@@ -100,8 +100,8 @@ void merge(int arr[], int l,
     }
 }
 
-void merge_sort(int *arr,
-                int l, int r) {
+static void merge_sort(int *arr,
+                       int l, int r) {
     if (l < r) {
         int m = l + (r - l) / 2;
 
