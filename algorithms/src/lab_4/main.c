@@ -6,8 +6,6 @@
 #include <string.h>
 #include <timings.h>
 
-#define COUNT 10
-
 typedef struct branch {
     char letter;
 
