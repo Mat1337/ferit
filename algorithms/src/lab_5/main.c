@@ -59,12 +59,82 @@ static void bubble_sort(int *array, int len) {
     SECTION_END_FUNC
 }
 
+void merge(int arr[], int l,
+           int m, int r) {
+    int i, j, k;
+    int n1 = m - l + 1;
+    int n2 = r - m;
+
+    int L[n1], R[n2];
+
+    for (i = 0; i < n1; i++)
+        L[i] = arr[l + i];
+    for (j = 0; j < n2; j++)
+        R[j] = arr[m + 1 + j];
+
+    i = 0;
+    j = 0;
+
+    k = l;
+    while (i < n1 && j < n2) {
+        if (L[i] <= R[j]) {
+            arr[k] = L[i];
+            i++;
+        } else {
+            arr[k] = R[j];
+            j++;
+        }
+        k++;
+    }
+
+    while (i < n1) {
+        arr[k] = L[i];
+        i++;
+        k++;
+    }
+
+    while (j < n2) {
+        arr[k] = R[j];
+        j++;
+        k++;
+    }
+}
+
+void merge_sort(int *arr,
+                int l, int r) {
+    if (l < r) {
+        int m = l + (r - l) / 2;
+
+        merge_sort(arr, l, m);
+        merge_sort(arr, m + 1, r);
+
+        merge(arr, l, m, r);
+    }
+}
+
 int main(void) {
     // random seed for the number generator
     srand((unsigned int) time(NULL));
 
-    int array[10];
-    random_array(&array, 10);
+    int size;
+    do {
+        printf("Unesi velicinu: ");
+        scanf("%d", &size);
+    } while (size < 0);
 
+    int *array = (int *) calloc(sizeof(int), size);
+    if (array == NULL)
+        return 1;
+
+    random_array(array, size);
+
+    for (int i = 0; i < size; ++i)
+        printf("%d\n", array[i]);
+
+    section_start("merge_sort");
+    merge_sort(array, 0, size);
+    section_end("merge_sort");
+
+    free(array);
     return 0;
 }
