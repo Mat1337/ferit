@@ -79,10 +79,8 @@ int main(void) {
     const char *name = "Matko Vukovic";
 
     branch_t *tree = NULL;
-    for (int i = 0; i < strlen(name); ++i) {
-        printf("%c == %d\n", name[i], (int) name[i]);
+    for (int i = 0; i < strlen(name); ++i)
         tree_add(&tree, name[i]);
-    }
 
     printf("  ");
     section_start("NLD");
