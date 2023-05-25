@@ -41,7 +41,6 @@ plt.legend(scatterpoints=1)
 plt.grid()
 plt.show()
 
-
 inertia_list = []
 for num_clusters in range(1, 20):
     kmeans_model = KMeans(n_clusters=num_clusters, init="k-means++")
