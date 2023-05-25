@@ -40,3 +40,19 @@ plt.scatter(
 plt.legend(scatterpoints=1)
 plt.grid()
 plt.show()
+
+
+inertia_list = []
+for num_clusters in range(1, 20):
+    kmeans_model = KMeans(n_clusters=num_clusters, init="k-means++")
+    kmeans_model.fit(X)
+    inertia_list.append(kmeans_model.inertia_)
+
+# plot the inertia curve
+plt.plot(range(1,20),inertia_list)
+plt.scatter(range(1,20),inertia_list)
+plt.scatter(3, inertia_list[3], marker="X", s=300, c="r")
+plt.xlabel("Number of Clusters", size=13)
+plt.ylabel("Inertia Value", size=13)
+plt.title("Inertia", size=17)
+plt.show()
