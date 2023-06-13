@@ -122,18 +122,25 @@ int main(void) {
         scanf("%d", &size);
     } while (size < 0);
 
+    /*
     int *array = (int *) calloc(sizeof(int), size);
     if (array == NULL)
         return 1;
 
-    random_array(array, size);
+    random_array(array, size);*/
+
+    int array[7] = {12, 5, 4, 10, 7, 8, 11};
+    size = 7;
 
     for (int i = 0; i < size; ++i)
         printf("%d\n", array[i]);
 
-    section_start("merge_sort");
-    merge_sort(array, 0, size);
-    section_end("merge_sort");
+    heap_sort(array, size);
+
+    printf("####################\n");
+
+    for (int i = 0; i < size; ++i)
+        printf("%d\n", array[i]);
 
     free(array);
     return 0;
